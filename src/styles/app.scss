@@ -1,0 +1,189 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+:root {
+    font-family: system-ui, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f4f9fd;
+}
+
+.primaryColor {
+    color: #3f8cff;
+}
+
+$nutinoSans: "Nunito Sans";
+$bgColor: rgba(63, 140, 255, 0.1);
+
+@import "mixin";
+@import "dashboardCharts";
+
+#hamburger {
+    display: grid;
+    place-items: center;
+    @include square(3rem);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: rgba(44, 104, 255);
+    position: fixed;
+    top: 140px;
+    left: 10px;
+    font-size: 2rem;
+    background-color: white;
+    border-radius: 50%;
+    z-index: 9;
+}
+
+.header {
+    @include flex(row, space-between, center, unset);
+    padding: 30px 50px;
+    .title {
+        @include flex(row, unset, flex-end, 15px);
+        position: relative;
+        margin-right: auto;
+        .headingWORO {
+            @include fontStyle(#3f8cff, 55px, unset, normal, 800, normal);
+            font-family: "FONTSPRING DEMO - Integral CF Extra Bold", sans-serif;
+            text-transform: uppercase;
+        }
+        > svg {
+            position: absolute;
+            @include square(16px);
+            height: 20px;
+            right: 55px;
+            top: 20px;
+        }
+        .headingCRM {
+            margin-bottom: 8px;
+            @include fontStyle(#3f8cff, 25px, $nutinoSans, normal, 600);
+            text-transform: uppercase;
+        }
+    }
+}
+
+.inputNotificationData {
+    @include flex(row, unset, center, 30px);
+    .inputSearch {
+        width: 412px;
+        height: 48px;
+        @include flex(row, unset, center);
+        @include boxRadiusAndShadow;
+        padding: 12px 19px;
+        svg {
+            @include square(24px);
+            @include flex;
+            flex-shrink: 0;
+        }
+        input {
+            color: #7d8592;
+            font-family: $nutinoSans;
+            font-size: 16px;
+            width: 100%;
+            border: none;
+        }
+    }
+    .notification {
+        @include square(48px);
+        @include boxRadiusAndShadow;
+        @include flex;
+        svg {
+            @include square(24px);
+        }
+    }
+    .account {
+        @include flex(row, unset, center);
+        padding: 12px 11px;
+        @include boxRadiusAndShadow;
+        > span {
+            @include fontStyle(#0a1629, 16px, $nutinoSans, normal, 700, 150%);
+        }
+        button {
+            @include flex;
+            @include square(14px);
+            border: none;
+            background: none;
+            outline: none;
+        }
+    }
+    .imgAccount {
+        @include flex(row, unset, center, 12px);
+        @include boxRadiusAndShadow;
+        padding: 12px 11px;
+        > img {
+            @include square(30px);
+            border-radius: 50%;
+        }
+        > span {
+            @include fontStyle(#0a1629, 16px, $nutinoSans, normal, 700, 150%);
+        }
+        button {
+            @include flex;
+            @include square(14px);
+            border: none;
+            background: none;
+            outline: none;
+        }
+    }
+}
+
+.mainSection {
+    padding: 0px 50px;
+    @include flex(row, unset, unset, 25px);
+}
+
+.adminSidePanel {
+    > div {
+        @include boxRadiusAndShadow(24px, #fff, unset);
+        display: inline-flex;
+        padding: 20px 12px 20px 16px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        width: 228px;
+        :hover {
+            cursor: pointer;
+        }
+        .panelBox {
+            @include flex(row, unset, center, 16px);
+            @include fontStyle(#7d8592);
+            position: relative;
+            width: 200px;
+            padding: 10px;
+            border-radius: 10px;
+            background: none;
+            outline: none;
+            border: none;
+            > svg {
+                @include square(24px);
+                flex-shrink: 0;
+            }
+            > div {
+                width: 4px;
+                height: 44px;
+                position: absolute;
+                right: -12px;
+                border-radius: 2px;
+                background: #3f8cff;
+            }
+        }
+    }
+}
+
+.activePanelBox {
+    background: $bgColor;
+    > svg {
+        fill: #3f8cff;
+    }
+    span {
+        color: #3f8cff;
+    }
+}

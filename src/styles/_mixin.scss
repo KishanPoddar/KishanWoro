@@ -1,0 +1,73 @@
+@mixin flex(
+    $dir: row,
+    $justifyContent: center,
+    $alignItems: center,
+    $gap: 10px
+) {
+    display: flex;
+    flex-direction: $dir;
+    justify-content: $justifyContent;
+    align-items: $alignItems;
+    gap: $gap;
+}
+
+@mixin grid($col: 1fr, $gap: 1rem, $row: unset) {
+    display: grid;
+    grid-template-columns: $col;
+    grid-template-rows: $row;
+    gap: $gap;
+}
+
+@mixin posCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin square($s: 1rem) {
+    height: $s;
+    width: $s;
+}
+
+// @mixin buttonDesign($border: none, $fSize: 1.2rem, $bgColor: transparent) {
+//     border: $border;
+//     font-size: $fSize;
+//     background-color: $bgColor;
+//     cursor: pointer;
+//     outline: none;
+// }
+// @mixin btn($p: 0.5rem 1rem, $bgColor, $color) {
+//     cursor: pointer;
+//     outline: none;
+//     border: none;
+//     padding: $p;
+//     background-color: $bgColor;
+//     color: $color;
+// }
+
+@mixin boxRadiusAndShadow(
+    $radius: 14px,
+    $backgroundColor: #fff,
+    $shadow: 0px 6px 58px 0px rgba(196, 203, 214, 0.1)
+) {
+    border-radius: $radius;
+    background: $backgroundColor;
+    box-shadow: $shadow;
+}
+
+@mixin fontStyle(
+    $color: #3f8cff,
+    $fontsize: 16px,
+    $fontfamily: "Nunito Sans",
+    $fontstyle: normal,
+    $fontweight: 700,
+    $lineheight: normal
+) {
+    color: $color;
+    font-family: $fontfamily;
+    font-size: $fontsize;
+    font-style: $fontstyle;
+    font-weight: $fontweight;
+    line-height: $lineheight;
+}

@@ -1,0 +1,333 @@
+// 170.25
+// 233.3
+// 741
+// 250.33
+// 791
+// 385.5
+
+.halfDashboard {
+    @include flex(row, center, center, 20px);
+    flex-wrap: wrap;
+    > div {
+        @include flex(column, center, center, 20px);
+        flex-wrap: wrap;
+        .pieChartData {
+            @include flex(row, center, center, 20px);
+            flex-wrap: wrap;
+        }
+        .lineChartData {
+            @include flex(row, center, center, 20px);
+            flex-wrap: wrap;
+        }
+        .monthlyTargetAndSales {
+            @include flex(row, center, center, 20px);
+            flex-wrap: wrap;
+        }
+    }
+}
+
+// .halfDashboard {
+//     display: grid;
+//     grid-template-columns: repeat(auto-fill, 1fr);
+// grid-template-rows: repeat(3, 1fr);
+// gap: 20px;
+// .pieChartData {
+//     display: grid;
+//     grid-template-columns: repeat(4, 1fr);
+//     gap: 8px;
+// }
+// }
+
+.doughnutChartContainer {
+    @include flex(column, center, center, 8px);
+    padding: 24px 12px;
+    flex: 1 0 0;
+    align-self: stretch;
+    border-radius: 10.5px;
+    background: linear-gradient(336deg, #3f8cff 0%, #93b7f4 57.79%);
+    height: 256px;
+    width: 170.25px;
+    .doughnutChart {
+        @include square(144px);
+        @include flex(row, center, center);
+        .widget-circle {
+            position: relative;
+            @include square(100px);
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background-color: #ecf3ff;
+            &::before {
+                content: "";
+                position: absolute;
+                @include square(70px);
+                background: linear-gradient(336deg, #3f8cff 0%, #93b7f4 57.79%);
+                border-radius: 100%;
+            }
+            span {
+                position: relative;
+                @include fontStyle(#f8f9fa, 24px);
+                color: #f8f9fa;
+                text-align: center;
+            }
+        }
+    }
+    .doughnutChartData {
+        @include flex(column, center, center, 8px);
+        align-self: stretch;
+        .doughnutNumber {
+            @include fontStyle(#fff, 16px, "Nunito Sans", normal, 700, 150%);
+            text-align: center;
+            > span {
+                font-size: 24px;
+            }
+        }
+        .doughnutNumberTitle {
+            @include fontStyle(#f8f9fa, 16px, "Barlow", normal, 600, 150%);
+            text-align: center;
+        }
+    }
+}
+
+.lineChartContainer {
+    padding: 24px 16px;
+    @include flex(column, flex-start, flex-start, 12px);
+    flex: 1 0 0;
+    border-radius: 10.5px;
+    border: 0.75px solid rgba(0, 0, 0, 0.13);
+    background: #fff;
+    width: 233.33px;
+    height: 256px;
+    .lineChartLogo {
+        @include square(35px);
+        padding: 6px;
+        border-radius: 18.75px;
+        border: 0.75px solid #3f8cff;
+        background: #3f8cff;
+        > svg {
+            fill: #fff;
+        }
+    }
+    .lineChartTitle {
+        @include fontStyle(#6c757d, 15px, "Barlow", normal, 600, 150%);
+    }
+    .lineChartValue {
+        @include flex(row, unset, center, 15px);
+        width: 100%;
+        .lineChartValueNumber {
+            @include flex(column, center, unset, unset);
+            @include fontStyle(#212529, 24px, "Nunito Sans", normal, 700, 150%);
+            width: 138px;
+            height: 25px;
+        }
+        .lineChartValuePercent {
+            border-radius: 15.75px;
+            @include flex(row, unset, center, 3px);
+            padding: 0.75px 6px;
+            @include fontStyle(unset, 10.5px, "Nunito Sans", normal, 700, 150%);
+            > span {
+                @include flex(row, center, center, unset);
+            }
+        }
+    }
+    .lineChartGraph {
+        height: 80px;
+        width: 100%;
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+.leadsGenerationTargetContainer {
+    @include flex(row, unset, center, 12px);
+    width: 741px;
+    height: 256px;
+    padding: 24px 16px;
+    border-radius: 10.5px;
+    border: 0.75px solid rgba(0, 0, 0, 0.13);
+    background: #fff;
+    .leadsGenerationBox {
+        @include flex(column, center, flex-start, 17px);
+        width: 225px;
+        flex-shrink: 0;
+        .leadsGenerationHeading {
+            @include fontStyle(#212529, 16px, "Barlow", normal, 600, 150%);
+            height: 25.5px;
+            align-self: stretch;
+        }
+        .leadsGenerationValue {
+            @include flex(row, unset, center, 15px);
+            width: 100%;
+            .leadsGenerationValueNumber {
+                @include flex(column, center, unset, unset);
+                @include fontStyle(#212529, 24px, "Nunito Sans", normal, 700, 150%);
+                width: 138px;
+                height: 25px;
+            }
+            .leadsGenerationValuePercent {
+                @include fontStyle(unset, 10.5px, "Nunito Sans", normal, 700, 150%);
+                @include flex(row, unset, center, 3px);
+                border-radius: 15.75px;
+                padding: 0.75px 6px;
+                background-color: #e1f4cb;
+                > span {
+                    @include flex(row, center, center, unset);
+                    @include fontStyle(#62912c, 10.5px, "Nunito Sans", normal, 700, 150%);
+                }
+            }
+        }
+        .leadsGenerationSentence {
+            @include fontStyle(#6c757d, 14px, "Barlow", normal, 500, 150%);
+        }
+    }
+    .leadsGenerationGraph {
+        width: 100%;
+    }
+}
+
+.monthlyIncomeContainer {
+    @include flex(row, unset, center, 12px);
+    width: 741px;
+    height: 256px;
+    padding: 24px 16px;
+    border-radius: 10.5px;
+    border: 0.75px solid rgba(0, 0, 0, 0.13);
+    background: #fff;
+    .monthlyIncomeBox {
+        @include flex(column, center, flex-start, 17px);
+        width: 225px;
+        flex-shrink: 0;
+        .monthlyIncomeHeading {
+            @include fontStyle(#212529, 16px, "Barlow", normal, 600, 150%);
+            height: 25.5px;
+            align-self: stretch;
+        }
+        .monthlyIncomeValue {
+            @include flex(row, unset, center, 15px);
+            width: 100%;
+            .monthlyIncomeValueNumber {
+                @include flex(column, center, unset, unset);
+                @include fontStyle(#212529, 24px, "Nunito Sans", normal, 700, 150%);
+                width: 138px;
+                height: 25px;
+            }
+            .monthlyIncomeValuePercent {
+                @include fontStyle(unset, 10.5px, "Nunito Sans", normal, 700, 150%);
+                @include flex(row, unset, center, 3px);
+                border-radius: 15.75px;
+                padding: 0.75px 6px;
+                background-color: #e1f4cb;
+                > span {
+                    @include flex(row, center, center, unset);
+                    @include fontStyle(#62912c, 10.5px, "Nunito Sans", normal, 700, 150%);
+                }
+            }
+        }
+        .monthlyIncomeSentence {
+            @include fontStyle(#6c757d, 14px, "Barlow", normal, 500, 150%);
+        }
+        > hr {
+            width: 100%;
+        }
+        .monthlyIncomeAccounting {
+            @include flex(row, unset, center, 12px);
+            > svg {
+                @include square(28.5px);
+                padding: 6px;
+                fill: #fff;
+                border-radius: 18.75px;
+                border: 0.75px solid #9a55ff;
+                background: #3f8cff;
+            }
+            .MonthlyincomeName {
+                @include flex(column, unset, flex-start, unset);
+                width: 220px;
+                @include fontStyle(#212529, 16px, "Barlow", normal, 600, 150%);
+                :nth-child(2) {
+                    @include fontStyle(#6c757d, 14px, "Barlow", normal, 500, 150%);
+                }
+            }
+        }
+    }
+    .monthlyIncomeGraph {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.monthlyTarget {
+    @include flex(row, unset, center, 8px);
+    padding: 24px 12px;
+    flex: 1 0 0;
+    align-self: stretch;
+    border-radius: 10.5px;
+    background: linear-gradient(336deg, #3f8cff 0%, #93b7f4 57.79%);
+    height: 256px;
+    width: 371px;
+
+    .monthlyTargetGraph {
+        @include square(200px);
+        @include flex(row, center, center, unset);
+        .widget-circle {
+            position: relative;
+            @include square(160px);
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background-color: #ecf3ff;
+            &::before {
+                content: "";
+                position: absolute;
+                @include square(100px);
+                background: linear-gradient(336deg, #3f8cff 0%, #93b7f4 57.79%);
+                border-radius: 100%;
+            }
+            span {
+                position: relative;
+                @include fontStyle(#f8f9fa, 24px, "Nunito Sans", normal, 700, 150%);
+                text-align: center;
+            }
+        }
+    }
+    .monthlyTargetChartData {
+        @include flex(column, center, center, 8px);
+        align-self: stretch;
+        width: 150px;
+        .monthlyTargetNumber {
+            @include fontStyle(#fff, 16px, "Nunito Sans", normal, 700, 150%);
+            text-align: center;
+            > span {
+                font-size: 24px;
+            }
+        }
+        .monthlyTargetTitle {
+            @include fontStyle(#f8f9fa, 16px, "Barlow", normal, 600, 150%);
+            text-align: center;
+        }
+    }
+}
+.salesActivity {
+    @include flex(row, unset, center, 8px);
+    padding: 24px 12px;
+    width: 350px;
+    flex: 1 0 0;
+    align-self: stretch;
+    border-radius: 10.5px;
+    background: linear-gradient(336deg, #3f8cff 0%, #93b7f4 57.79%);
+    .salesActivityDoughnut {
+        @include square(140px);
+        position: relative;
+        > span {
+            @include posCenter;
+            @include fontStyle(#f8f9fa, 24px, "Nunito Sans", normal, 700, 150%);
+        }
+    }
+    .salesActivityAgentName {
+        width: 100%;
+        @include fontStyle(#f8f9fa, 14px, "Barlow", normal, 500);
+        @include flex(column, center, flex-start, 8px);
+        text-align: center;
+    }
+}
